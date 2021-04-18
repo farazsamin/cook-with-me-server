@@ -17,7 +17,7 @@ const port = 5000
 
 console.log(process.env.DB_USER);
 app.get('/', (req, res) => {
-  res.send('Hello World!')
+  res.send('Hello World! Working')
 })
 
 app.listen(process.env.PORT || port, () => {
