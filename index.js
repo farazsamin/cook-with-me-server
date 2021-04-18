@@ -99,27 +99,18 @@ client.connect(err => {
       })
   })
 
-  // app.get('/courses/:id',(req,res)=>{
-  //   foodsCollection.find({_id : ObjectID(req.params.id)})
-  //   .toArray((err,documents)=>{
-  //     // console.log(documents)
-  //     res.send(documents[0])
 
-  //   })
-  // })
-
-
-  // app.put('/courses/update/:id',(req,res)=>{
-  //   console.log(req.body)
-  //   foodsCollection.updateOne({_id : ObjectID(req.params.id)},
-  //   {
-  //     $set : {}
-  //   }
-  //   )
-  //   .then(res =>{
-  //     console.log(res)
-  //   })
-  // })
+  app.patch('/update/:id',(req,res)=>{
+    console.log(req.body)
+    orderCollection.updateOne({_id : ObjectID(req.params.id)},
+    {
+      $set : {status : req.body.status}
+    }
+    )
+    .then(res =>{
+      console.log(res)
+    })
+  })
   app.get('/orders', (req, res) => {
     // console.log(req.query.email)
     adminCollection.find({ email: req.query.email })
